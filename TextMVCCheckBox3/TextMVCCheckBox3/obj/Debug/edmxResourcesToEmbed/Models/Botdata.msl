@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BotDataModelStoreContainer" CdmEntityContainer="BotDataEntities">
+    <EntitySetMapping Name="tbl_imginfo">
+      <EntityTypeMapping TypeName="BotDataModel.tbl_imginfo">
+        <MappingFragment StoreEntitySet="tbl_imginfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RCD" ColumnName="RCD" />
+          <ScalarProperty Name="SCD" ColumnName="SCD" />
+          <ScalarProperty Name="WOS" ColumnName="WOS" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create Date" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update Date" />
+          <ScalarProperty Name="LPCD" ColumnName="LPCD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_pld_doc">
+      <EntityTypeMapping TypeName="BotDataModel.tbl_pld_doc">
+        <MappingFragment StoreEntitySet="tbl_pld_doc">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create Date" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_prj">
+      <EntityTypeMapping TypeName="BotDataModel.tbl_prj">
+        <MappingFragment StoreEntitySet="tbl_prj">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="LOB" ColumnName="LOB" />
+          <ScalarProperty Name="Project_Name" ColumnName="Project Name" />
+          <ScalarProperty Name="Model_Owner" ColumnName="Model Owner" />
+          <ScalarProperty Name="ODM" ColumnName="ODM" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create Date" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ProjectImgInfo">
+      <EntityTypeMapping TypeName="BotDataModel.tbl_ProjectImgInfo">
+        <MappingFragment StoreEntitySet="tbl_ProjectImgInfo">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="PrjID" ColumnName="PrjID" />
+          <ScalarProperty Name="ImgID" ColumnName="ImgID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_roles">
+      <EntityTypeMapping TypeName="BotDataModel.tbl_roles">
+        <MappingFragment StoreEntitySet="tbl_roles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_tool">
+      <EntityTypeMapping TypeName="BotDataModel.tbl_tool">
+        <MappingFragment StoreEntitySet="tbl_tool">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Item" ColumnName="Item" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="Create_Date" ColumnName="Create Date" />
+          <ScalarProperty Name="Update_Date" ColumnName="Update Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_user">
+      <EntityTypeMapping TypeName="BotDataModel.tbl_user">
+        <MappingFragment StoreEntitySet="tbl_user">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Account" ColumnName="Account" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Company" ColumnName="Company" />
+          <ScalarProperty Name="LOB" ColumnName="LOB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbladmins">
+      <EntityTypeMapping TypeName="BotDataModel.tbladmin">
+        <MappingFragment StoreEntitySet="tbladmin">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="GAIAServer_SID" ColumnName="GAIAServer_SID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Creator_PartNumber" ColumnName="Creator_PartNumber" />
+          <ScalarProperty Name="EMail" ColumnName="EMail" />
+          <ScalarProperty Name="AdminGroup_SID" ColumnName="AdminGroup_SID" />
+          <ScalarProperty Name="Department" ColumnName="Department" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="admin_SID" ColumnName="admin_SID" />
+          <ScalarProperty Name="LastLoginDateTime" ColumnName="LastLoginDateTime" />
+          <ScalarProperty Name="LoginClient" ColumnName="LoginClient" />
+          <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+          <ScalarProperty Name="UpdateDatetime" ColumnName="UpdateDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblkits">
+      <EntityTypeMapping TypeName="BotDataModel.tblkit">
+        <MappingFragment StoreEntitySet="tblkit">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="Kit_PN" ColumnName="Kit_PN" />
+          <ScalarProperty Name="LangPN" ColumnName="LangPN" />
+          <ScalarProperty Name="SCL_GUID" ColumnName="SCL_GUID" />
+          <ScalarProperty Name="RCD_version" ColumnName="RCD_version" />
+          <ScalarProperty Name="RCD_NO" ColumnName="RCD_NO" />
+          <ScalarProperty Name="SCD_version" ColumnName="SCD_version" />
+          <ScalarProperty Name="SCD_NO" ColumnName="SCD_NO" />
+          <ScalarProperty Name="LPCD_version" ColumnName="LPCD_version" />
+          <ScalarProperty Name="LPCD_NO" ColumnName="LPCD_NO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblmodelnames">
+      <EntityTypeMapping TypeName="BotDataModel.tblmodelname">
+        <MappingFragment StoreEntitySet="tblmodelname">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+          <ScalarProperty Name="Brand" ColumnName="Brand" />
+          <ScalarProperty Name="ModelType_GUID" ColumnName="ModelType_GUID" />
+          <ScalarProperty Name="ProjectCodeName" ColumnName="ProjectCodeName" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
+          <ScalarProperty Name="ServerList" ColumnName="ServerList" />
+          <ScalarProperty Name="MailGroupList" ColumnName="MailGroupList" />
+          <ScalarProperty Name="MailAddressList" ColumnName="MailAddressList" />
+          <ScalarProperty Name="ShareModelPN" ColumnName="ShareModelPN" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="SupporteRCD" ColumnName="SupporteRCD" />
+          <ScalarProperty Name="ApplyCPPRCD" ColumnName="ApplyCPPRCD" />
+          <ScalarProperty Name="SCDAutoBuild" ColumnName="SCDAutoBuild" />
+          <ScalarProperty Name="ODM_SID" ColumnName="ODM_SID" />
+          <ScalarProperty Name="AR_SID" ColumnName="AR_SID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Server_SID" ColumnName="Server_SID" />
+          <ScalarProperty Name="Admin_SID" ColumnName="Admin_SID" />
+          <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+          <ScalarProperty Name="UpdateDatetime" ColumnName="UpdateDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblodms">
+      <EntityTypeMapping TypeName="BotDataModel.tblodm">
+        <MappingFragment StoreEntitySet="tblodm">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ODM_ID" ColumnName="ODM_ID" />
+          <ScalarProperty Name="LOB" ColumnName="LOB" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Server_SID" ColumnName="Server_SID" />
+          <ScalarProperty Name="Admin_SID" ColumnName="Admin_SID" />
+          <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+          <ScalarProperty Name="UpdateDatetime" ColumnName="UpdateDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblscls">
+      <EntityTypeMapping TypeName="BotDataModel.tblscl">
+        <MappingFragment StoreEntitySet="tblscl">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Model_PartNumber" ColumnName="Model_PartNumber" />
+          <ScalarProperty Name="SCLGroup" ColumnName="SCLGroup" />
+          <ScalarProperty Name="Refresh" ColumnName="Refresh" />
+          <ScalarProperty Name="WOS_PartNumber" ColumnName="WOS_PartNumber" />
+          <ScalarProperty Name="NAPP" ColumnName="NAPP" />
+          <ScalarProperty Name="SWODCycle" ColumnName="SWODCycle" />
+          <ScalarProperty Name="GroupDescription" ColumnName="GroupDescription" />
+          <ScalarProperty Name="Version" ColumnName="Version" />
+          <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Creator_Server_SID" ColumnName="Creator_Server_SID" />
+          <ScalarProperty Name="Creator_Admin_SID" ColumnName="Creator_Admin_SID" />
+          <ScalarProperty Name="Server_SID" ColumnName="Server_SID" />
+          <ScalarProperty Name="Admin_SID" ColumnName="Admin_SID" />
+          <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+          <ScalarProperty Name="UpdateDatetime" ColumnName="UpdateDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblwos">
+      <EntityTypeMapping TypeName="BotDataModel.tblwo">
+        <MappingFragment StoreEntitySet="tblwos">
+          <ScalarProperty Name="SID" ColumnName="SID" />
+          <ScalarProperty Name="PartNumber" ColumnName="PartNumber" />
+          <ScalarProperty Name="Parent_PartNumber" ColumnName="Parent_PartNumber" />
+          <ScalarProperty Name="CPU_GUID" ColumnName="CPU_GUID" />
+          <ScalarProperty Name="SKU_GUID" ColumnName="SKU_GUID" />
+          <ScalarProperty Name="SWBOM_Abbreviation" ColumnName="SWBOM_Abbreviation" />
+          <ScalarProperty Name="SkuDisplayName" ColumnName="SkuDisplayName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Server_SID" ColumnName="Server_SID" />
+          <ScalarProperty Name="Admin_SID" ColumnName="Admin_SID" />
+          <ScalarProperty Name="CreateDatetime" ColumnName="CreateDatetime" />
+          <ScalarProperty Name="UpdateDatetime" ColumnName="UpdateDatetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserLogs">
+      <EntityTypeMapping TypeName="BotDataModel.UserLog">
+        <MappingFragment StoreEntitySet="UserLog">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Channel" ColumnName="Channel" />
+          <ScalarProperty Name="created" ColumnName="created" />
+          <ScalarProperty Name="Message" ColumnName="Message" />
+          <ScalarProperty Name="AskTimes" ColumnName="AskTimes" />
+          <ScalarProperty Name="MostAskQuestion" ColumnName="MostAskQuestion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="tbl_DocRole" TypeName="BotDataModel.tbl_DocRole" StoreEntitySet="tbl_DocRole">
+      <EndProperty Name="tbl_pld_doc">
+        <ScalarProperty Name="Id" ColumnName="DocId" />
+      </EndProperty>
+      <EndProperty Name="tbl_roles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="tbl_ToolRole" TypeName="BotDataModel.tbl_ToolRole" StoreEntitySet="tbl_ToolRole">
+      <EndProperty Name="tbl_roles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="tbl_tool">
+        <ScalarProperty Name="Id" ColumnName="ToolId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="tbl_user_role" TypeName="BotDataModel.tbl_user_role" StoreEntitySet="tbl_user_role">
+      <EndProperty Name="tbl_roles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="tbl_user">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

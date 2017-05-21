@@ -1,0 +1,387 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BotDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_DocRole">
+    <Key>
+      <PropertyRef Name="DocId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="DocId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_imginfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RCD" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="SCD" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="WOS" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Create Date" Type="datetime" Nullable="false" />
+    <Property Name="Update Date" Type="datetime" Nullable="false" />
+    <Property Name="LPCD" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_pld_doc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="path" Type="varchar" MaxLength="1000" />
+    <Property Name="Create Date" Type="datetime" Nullable="false" />
+    <Property Name="Update Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_prj">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOB" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="Project Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Model Owner" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ODM" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Create Date" Type="datetime" Nullable="false" />
+    <Property Name="Update Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ProjectImgInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PrjID" Type="int" Nullable="false" />
+    <Property Name="ImgID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_tool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Item" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="path" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Create Date" Type="datetime" Nullable="false" />
+    <Property Name="Update Date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ToolRole">
+    <Key>
+      <PropertyRef Name="ToolId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="ToolId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Account" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Password" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Company" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="LOB" Type="nvarchar" MaxLength="150" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_user_role">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbladmin">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="GAIAServer_SID" Type="int" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Creator_PartNumber" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="EMail" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="AdminGroup_SID" Type="int" Nullable="false" />
+    <Property Name="Department" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="admin_SID" Type="int" />
+    <Property Name="LastLoginDateTime" Type="datetime2" Precision="0" />
+    <Property Name="LoginClient" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="CreateDatetime" Type="datetime2" Precision="0" />
+    <Property Name="UpdateDatetime" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="tblkit">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="Kit_PN" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="LangPN" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="SCL_GUID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="RCD_version" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="RCD_NO" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="SCD_version" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="SCD_NO" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="LPCD_version" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="LPCD_NO" Type="varchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblmodelname">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="PartNumber" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Brand" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="ModelType_GUID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="ProjectCodeName" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="Year" Type="numeric" Precision="4" Scale="0" />
+    <Property Name="ServerList" Type="varchar" MaxLength="4096" Nullable="false" />
+    <Property Name="MailGroupList" Type="varchar" MaxLength="4090" />
+    <Property Name="MailAddressList" Type="varchar" MaxLength="4096" />
+    <Property Name="ShareModelPN" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="Owner" Type="int" Nullable="false" />
+    <Property Name="SupporteRCD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ApplyCPPRCD" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="SCDAutoBuild" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="ODM_SID" Type="int" />
+    <Property Name="AR_SID" Type="int" />
+    <Property Name="Status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Server_SID" Type="int" Nullable="false" />
+    <Property Name="Admin_SID" Type="int" Nullable="false" />
+    <Property Name="CreateDatetime" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="UpdateDatetime" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblodm">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="ODM_ID" Type="varchar" MaxLength="8" Nullable="false" />
+    <Property Name="LOB" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Server_SID" Type="int" Nullable="false" />
+    <Property Name="Admin_SID" Type="int" Nullable="false" />
+    <Property Name="CreateDatetime" Type="datetime2" Precision="0" Nullable="false" />
+    <Property Name="UpdateDatetime" Type="datetime2" Precision="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblscl">
+    <Key>
+      <PropertyRef Name="SID" />
+      <PropertyRef Name="GUID" />
+    </Key>
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="GUID" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="Type" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Model_PartNumber" Type="varchar" MaxLength="3" Nullable="false" />
+    <Property Name="SCLGroup" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Refresh" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="WOS_PartNumber" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="NAPP" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="SWODCycle" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="GroupDescription" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="Version" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="FilePath" Type="varchar" MaxLength="512" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Creator_Server_SID" Type="int" Nullable="false" />
+    <Property Name="Creator_Admin_SID" Type="int" Nullable="false" />
+    <Property Name="Server_SID" Type="int" Nullable="false" />
+    <Property Name="Admin_SID" Type="int" />
+    <Property Name="CreateDatetime" Type="datetime2" Precision="0" />
+    <Property Name="UpdateDatetime" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="tblwos">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="int" Nullable="false" />
+    <Property Name="PartNumber" Type="varchar" MaxLength="2" Nullable="false" />
+    <Property Name="Parent_PartNumber" Type="varchar" MaxLength="128" Nullable="false" />
+    <Property Name="CPU_GUID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="SKU_GUID" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="SWBOM_Abbreviation" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="SkuDisplayName" Type="varchar" MaxLength="64" Nullable="false" />
+    <Property Name="Status" Type="varchar" MaxLength="1" Nullable="false" />
+    <Property Name="Server_SID" Type="int" Nullable="false" />
+    <Property Name="Admin_SID" Type="int" />
+    <Property Name="CreateDatetime" Type="datetime2" Precision="0" />
+    <Property Name="UpdateDatetime" Type="datetime2" Precision="0" />
+  </EntityType>
+  <EntityType Name="UserLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="Channel" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="created" Type="datetime" Nullable="false" />
+    <Property Name="Message" Type="nvarchar" MaxLength="500" />
+    <Property Name="AskTimes" Type="int" />
+    <Property Name="MostAskQuestion" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <Association Name="FK_dbo_tbl_DocRole_dbo_tbl_docId">
+    <End Role="tbl_pld_doc" Type="Self.tbl_pld_doc" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_DocRole" Type="Self.tbl_DocRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_pld_doc">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_DocRole">
+        <PropertyRef Name="DocId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_tbl_DocRole_dbo_tbl_rolesId">
+    <End Role="tbl_roles" Type="Self.tbl_roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_DocRole" Type="Self.tbl_DocRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_DocRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_tbl_ToolRole_dbo_tbl_rolesId">
+    <End Role="tbl_roles" Type="Self.tbl_roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ToolRole" Type="Self.tbl_ToolRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ToolRole">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_tbl_ToolRole_dbo_tbl_toolId">
+    <End Role="tbl_tool" Type="Self.tbl_tool" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_ToolRole" Type="Self.tbl_ToolRole" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_tool">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ToolRole">
+        <PropertyRef Name="ToolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_user_role_dbo_tbl_rolesId">
+    <End Role="tbl_roles" Type="Self.tbl_roles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_user_role" Type="Self.tbl_user_role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_roles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_user_role">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_user_role_dbo_tbl_userId">
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="tbl_user_role" Type="Self.tbl_user_role" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_user">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_user_role">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ImgFK">
+    <End Role="tbl_imginfo" Type="Self.tbl_imginfo" Multiplicity="1" />
+    <End Role="tbl_ProjectImgInfo" Type="Self.tbl_ProjectImgInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_imginfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectImgInfo">
+        <PropertyRef Name="ImgID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrjFK">
+    <End Role="tbl_prj" Type="Self.tbl_prj" Multiplicity="1" />
+    <End Role="tbl_ProjectImgInfo" Type="Self.tbl_ProjectImgInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_prj">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectImgInfo">
+        <PropertyRef Name="PrjID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BotDataModelStoreContainer">
+    <EntitySet Name="tbl_DocRole" EntityType="Self.tbl_DocRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_imginfo" EntityType="Self.tbl_imginfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_pld_doc" EntityType="Self.tbl_pld_doc" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_prj" EntityType="Self.tbl_prj" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ProjectImgInfo" EntityType="Self.tbl_ProjectImgInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_roles" EntityType="Self.tbl_roles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_tool" EntityType="Self.tbl_tool" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ToolRole" EntityType="Self.tbl_ToolRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_user_role" EntityType="Self.tbl_user_role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbladmin" EntityType="Self.tbladmin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblkit" EntityType="Self.tblkit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblmodelname" EntityType="Self.tblmodelname" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblodm" EntityType="Self.tblodm" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblscl" EntityType="Self.tblscl" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblwos" EntityType="Self.tblwos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserLog" EntityType="Self.UserLog" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_tbl_DocRole_dbo_tbl_docId" Association="Self.FK_dbo_tbl_DocRole_dbo_tbl_docId">
+      <End Role="tbl_pld_doc" EntitySet="tbl_pld_doc" />
+      <End Role="tbl_DocRole" EntitySet="tbl_DocRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_tbl_DocRole_dbo_tbl_rolesId" Association="Self.FK_dbo_tbl_DocRole_dbo_tbl_rolesId">
+      <End Role="tbl_roles" EntitySet="tbl_roles" />
+      <End Role="tbl_DocRole" EntitySet="tbl_DocRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_tbl_ToolRole_dbo_tbl_rolesId" Association="Self.FK_dbo_tbl_ToolRole_dbo_tbl_rolesId">
+      <End Role="tbl_roles" EntitySet="tbl_roles" />
+      <End Role="tbl_ToolRole" EntitySet="tbl_ToolRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_tbl_ToolRole_dbo_tbl_toolId" Association="Self.FK_dbo_tbl_ToolRole_dbo_tbl_toolId">
+      <End Role="tbl_tool" EntitySet="tbl_tool" />
+      <End Role="tbl_ToolRole" EntitySet="tbl_ToolRole" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_user_role_dbo_tbl_rolesId" Association="Self.FK_dbo_user_role_dbo_tbl_rolesId">
+      <End Role="tbl_roles" EntitySet="tbl_roles" />
+      <End Role="tbl_user_role" EntitySet="tbl_user_role" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_user_role_dbo_tbl_userId" Association="Self.FK_dbo_user_role_dbo_tbl_userId">
+      <End Role="tbl_user" EntitySet="tbl_user" />
+      <End Role="tbl_user_role" EntitySet="tbl_user_role" />
+    </AssociationSet>
+    <AssociationSet Name="ImgFK" Association="Self.ImgFK">
+      <End Role="tbl_imginfo" EntitySet="tbl_imginfo" />
+      <End Role="tbl_ProjectImgInfo" EntitySet="tbl_ProjectImgInfo" />
+    </AssociationSet>
+    <AssociationSet Name="PrjFK" Association="Self.PrjFK">
+      <End Role="tbl_prj" EntitySet="tbl_prj" />
+      <End Role="tbl_ProjectImgInfo" EntitySet="tbl_ProjectImgInfo" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

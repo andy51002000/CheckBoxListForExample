@@ -1,0 +1,286 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BotDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tbl_imginfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RCD" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="SCD" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="WOS" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LPCD" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tbl_ProjectImgInfo" Relationship="Self.ImgFK" FromRole="tbl_imginfo" ToRole="tbl_ProjectImgInfo" />
+  </EntityType>
+  <EntityType Name="tbl_pld_doc">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="path" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tbl_roles" Relationship="Self.tbl_DocRole" FromRole="tbl_pld_doc" ToRole="tbl_roles" />
+  </EntityType>
+  <EntityType Name="tbl_prj">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LOB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Project_Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model_Owner" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ODM" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tbl_ProjectImgInfo" Relationship="Self.PrjFK" FromRole="tbl_prj" ToRole="tbl_ProjectImgInfo" />
+  </EntityType>
+  <EntityType Name="tbl_ProjectImgInfo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PrjID" Type="Int32" Nullable="false" />
+    <Property Name="ImgID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="tbl_imginfo" Relationship="Self.ImgFK" FromRole="tbl_ProjectImgInfo" ToRole="tbl_imginfo" />
+    <NavigationProperty Name="tbl_prj" Relationship="Self.PrjFK" FromRole="tbl_ProjectImgInfo" ToRole="tbl_prj" />
+  </EntityType>
+  <EntityType Name="tbl_roles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_pld_doc" Relationship="Self.tbl_DocRole" FromRole="tbl_roles" ToRole="tbl_pld_doc" />
+    <NavigationProperty Name="tbl_tool" Relationship="Self.tbl_ToolRole" FromRole="tbl_roles" ToRole="tbl_tool" />
+    <NavigationProperty Name="tbl_user" Relationship="Self.tbl_user_role" FromRole="tbl_roles" ToRole="tbl_user" />
+  </EntityType>
+  <EntityType Name="tbl_tool">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Item" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="path" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Create_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Update_Date" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="tbl_roles" Relationship="Self.tbl_ToolRole" FromRole="tbl_tool" ToRole="tbl_roles" />
+  </EntityType>
+  <EntityType Name="tbl_user">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Account" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Company" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="LOB" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="tbl_roles" Relationship="Self.tbl_user_role" FromRole="tbl_user" ToRole="tbl_roles" />
+  </EntityType>
+  <EntityType Name="tbladmin">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GAIAServer_SID" Type="Int32" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Creator_PartNumber" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EMail" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="AdminGroup_SID" Type="Int32" Nullable="false" />
+    <Property Name="Department" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="admin_SID" Type="Int32" />
+    <Property Name="LastLoginDateTime" Type="DateTime" Precision="0" />
+    <Property Name="LoginClient" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CreateDatetime" Type="DateTime" Precision="0" />
+    <Property Name="UpdateDatetime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tblkit">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="Int32" Nullable="false" />
+    <Property Name="Kit_PN" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LangPN" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SCL_GUID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RCD_version" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RCD_NO" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SCD_version" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SCD_NO" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LPCD_version" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LPCD_NO" Type="String" MaxLength="32" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tblmodelname">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PartNumber" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Brand" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ModelType_GUID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProjectCodeName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Year" Type="Decimal" Precision="4" Scale="0" />
+    <Property Name="ServerList" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MailGroupList" Type="String" MaxLength="4090" FixedLength="false" Unicode="false" />
+    <Property Name="MailAddressList" Type="String" MaxLength="4096" FixedLength="false" Unicode="false" />
+    <Property Name="ShareModelPN" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Owner" Type="Int32" Nullable="false" />
+    <Property Name="SupporteRCD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ApplyCPPRCD" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SCDAutoBuild" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ODM_SID" Type="Int32" />
+    <Property Name="AR_SID" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Server_SID" Type="Int32" Nullable="false" />
+    <Property Name="Admin_SID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdateDatetime" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="tblodm">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ODM_ID" Type="String" MaxLength="8" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LOB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Server_SID" Type="Int32" Nullable="false" />
+    <Property Name="Admin_SID" Type="Int32" Nullable="false" />
+    <Property Name="CreateDatetime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="UpdateDatetime" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="tblscl">
+    <Key>
+      <PropertyRef Name="SID" />
+      <PropertyRef Name="GUID" />
+    </Key>
+    <Property Name="SID" Type="Int32" Nullable="false" />
+    <Property Name="GUID" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Type" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Model_PartNumber" Type="String" MaxLength="3" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SCLGroup" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Refresh" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WOS_PartNumber" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NAPP" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SWODCycle" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GroupDescription" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Version" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FilePath" Type="String" MaxLength="512" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Creator_Server_SID" Type="Int32" Nullable="false" />
+    <Property Name="Creator_Admin_SID" Type="Int32" Nullable="false" />
+    <Property Name="Server_SID" Type="Int32" Nullable="false" />
+    <Property Name="Admin_SID" Type="Int32" />
+    <Property Name="CreateDatetime" Type="DateTime" Precision="0" />
+    <Property Name="UpdateDatetime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="tblwo">
+    <Key>
+      <PropertyRef Name="SID" />
+    </Key>
+    <Property Name="SID" Type="Int32" Nullable="false" />
+    <Property Name="PartNumber" Type="String" MaxLength="2" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Parent_PartNumber" Type="String" MaxLength="128" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CPU_GUID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SKU_GUID" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SWBOM_Abbreviation" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SkuDisplayName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="1" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Server_SID" Type="Int32" Nullable="false" />
+    <Property Name="Admin_SID" Type="Int32" />
+    <Property Name="CreateDatetime" Type="DateTime" Precision="0" />
+    <Property Name="UpdateDatetime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="UserLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Channel" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="created" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Message" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="AskTimes" Type="Int32" />
+    <Property Name="MostAskQuestion" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="ImgFK">
+    <End Role="tbl_imginfo" Type="Self.tbl_imginfo" Multiplicity="1" />
+    <End Role="tbl_ProjectImgInfo" Type="Self.tbl_ProjectImgInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_imginfo">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectImgInfo">
+        <PropertyRef Name="ImgID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PrjFK">
+    <End Role="tbl_prj" Type="Self.tbl_prj" Multiplicity="1" />
+    <End Role="tbl_ProjectImgInfo" Type="Self.tbl_ProjectImgInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tbl_prj">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="tbl_ProjectImgInfo">
+        <PropertyRef Name="PrjID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="tbl_DocRole">
+    <End Role="tbl_pld_doc" Type="Self.tbl_pld_doc" Multiplicity="*" />
+    <End Role="tbl_roles" Type="Self.tbl_roles" Multiplicity="*" />
+  </Association>
+  <Association Name="tbl_ToolRole">
+    <End Role="tbl_roles" Type="Self.tbl_roles" Multiplicity="*" />
+    <End Role="tbl_tool" Type="Self.tbl_tool" Multiplicity="*" />
+  </Association>
+  <Association Name="tbl_user_role">
+    <End Role="tbl_roles" Type="Self.tbl_roles" Multiplicity="*" />
+    <End Role="tbl_user" Type="Self.tbl_user" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="BotDataEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tbl_imginfo" EntityType="Self.tbl_imginfo" />
+    <EntitySet Name="tbl_pld_doc" EntityType="Self.tbl_pld_doc" />
+    <EntitySet Name="tbl_prj" EntityType="Self.tbl_prj" />
+    <EntitySet Name="tbl_ProjectImgInfo" EntityType="Self.tbl_ProjectImgInfo" />
+    <EntitySet Name="tbl_roles" EntityType="Self.tbl_roles" />
+    <EntitySet Name="tbl_tool" EntityType="Self.tbl_tool" />
+    <EntitySet Name="tbl_user" EntityType="Self.tbl_user" />
+    <EntitySet Name="tbladmins" EntityType="Self.tbladmin" />
+    <EntitySet Name="tblkits" EntityType="Self.tblkit" />
+    <EntitySet Name="tblmodelnames" EntityType="Self.tblmodelname" />
+    <EntitySet Name="tblodms" EntityType="Self.tblodm" />
+    <EntitySet Name="tblscls" EntityType="Self.tblscl" />
+    <EntitySet Name="tblwos" EntityType="Self.tblwo" />
+    <EntitySet Name="UserLogs" EntityType="Self.UserLog" />
+    <AssociationSet Name="ImgFK" Association="Self.ImgFK">
+      <End Role="tbl_imginfo" EntitySet="tbl_imginfo" />
+      <End Role="tbl_ProjectImgInfo" EntitySet="tbl_ProjectImgInfo" />
+    </AssociationSet>
+    <AssociationSet Name="PrjFK" Association="Self.PrjFK">
+      <End Role="tbl_prj" EntitySet="tbl_prj" />
+      <End Role="tbl_ProjectImgInfo" EntitySet="tbl_ProjectImgInfo" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_DocRole" Association="Self.tbl_DocRole">
+      <End Role="tbl_pld_doc" EntitySet="tbl_pld_doc" />
+      <End Role="tbl_roles" EntitySet="tbl_roles" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_ToolRole" Association="Self.tbl_ToolRole">
+      <End Role="tbl_roles" EntitySet="tbl_roles" />
+      <End Role="tbl_tool" EntitySet="tbl_tool" />
+    </AssociationSet>
+    <AssociationSet Name="tbl_user_role" Association="Self.tbl_user_role">
+      <End Role="tbl_roles" EntitySet="tbl_roles" />
+      <End Role="tbl_user" EntitySet="tbl_user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
